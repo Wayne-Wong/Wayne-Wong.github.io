@@ -1,143 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Grand Escape — Business Proposal</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fefefe;
-      color: #2b2b2b;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background: #000;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #1a1a1a;
-      margin-top: 2rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f0f0f0;
-      color: #666;
-    }
-    .highlight {
-      font-weight: bold;
-      color: #c0392b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Venue: Property & Event Strategy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+        }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow */
+            padding: 2rem;
+            margin-bottom: 2.5rem; /* More space between cards */
+            transition: transform 0.2s ease-in-out;
+        }
+        .section-card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        h1 {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Purple gradient for heading */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+        .section-title {
+            color: #4f46e5; /* Indigo color for section titles */
+            font-weight: 600;
+        }
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .list-item-icon {
+            color: #10b981; /* Green checkmark */
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+        }
+        /* Simple icon styling for list items (no external library, just Unicode/emoji) */
+        .li-check::before {
+            content: '✅';
+            margin-right: 0.5rem;
+        }
+        .li-star::before {
+            content: '⭐';
+            margin-right: 0.5rem;
+        }
+        .li-dollar::before {
+            content: '💰';
+            margin-right: 0.5rem;
+        }
+        .li-next::before {
+            content: '➡️';
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>The Grand Escape</h1>
-    <p>A Luxury Event Venue Experience Like No Other</p>
-  </header>
+<body class="p-6">
+    <div class="max-w-4xl mx-auto py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+                The Dream Venue
+            </h1>
+            <p class="text-xl text-gray-600">
+                Crafting Unforgettable Experiences, Building Lasting Legacy
+            </p>
+        </header>
 
-  <section>
-    <h2>1️⃣ Property Strategy</h2>
-    <p><span class="highlight">Buy to Build, Not Lease to Limit.</span> Our goal is to create a lasting legacy — a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.</p>
-    <ul>
-      <li><strong>Location:</strong> Secluded yet reachable, designed for guests to feel like they’ve stepped into another world.</li>
-      <li><strong>Style:</strong> Rustic modern ranch with expansive lawns, scenic views, and architectural charm.</li>
-      <li><strong>Exclusivity:</strong> We host one event at a time — creating a stress-free, private, and personalized environment.</li>
-      <li><strong>Hours:</strong> Late-night license ensures parties don’t need to stop early — venues closing at 12 AM are no match.</li>
-      <li><strong>Parking:</strong> On-site parking for 100+ vehicles and valet service options.</li>
-    </ul>
+        <!-- 1. Property Strategy -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">1. Property Strategy</h2>
+            <p class="mb-4 text-gray-700 leading-relaxed">
+                <span class="font-semibold text-indigo-700">Buy to Build, Not Lease to Limit.</span> Our goal is to create a lasting legacy — a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.
+            </p>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-check">
+                    <span class="font-medium">Location:</span> Secluded yet reachable, designed for guests to feel like they’ve stepped into another world.
+                </li>
+                <li class="li-check">
+                    <span class="font-medium">Style:</span> Rustic modern ranch with expansive lawns, scenic views, and architectural charm.
+                </li>
+                <li class="li-check">
+                    <span class="font-medium">Exclusivity:</span> We host one event at a time — creating a stress-free, private, and personalized environment.
+                </li>
+                <li class="li-check">
+                    <span class="font-medium">Hours:</span> Late-night license ensures parties don’t need to stop early — venues closing at 12 AM are no match.
+                </li>
+                <li class="li-check">
+                    <span class="font-medium">Parking:</span> On-site parking for 100+ vehicles and valet service options.
+                </li>
+            </ul>
+        </section>
 
-    <h2>2️⃣ Target Events</h2>
-    <p>We cater to a diverse set of clientele — from high-energy celebrations to professional gatherings:</p>
-    <ul>
-      <li>Weddings (American, South Asian, Fusion)</li>
-      <li>Sangeet Nights, Mehndi Ceremonies, Baraats</li>
-      <li>Saree Ceremonies, Sweet 16s, Quinceañeras</li>
-      <li>Graduation Parties and Proms</li>
-      <li>Birthday Parties, Baby Showers, Gender Reveals</li>
-      <li>Corporate Trainings, Board Meetings, Team Offsites</li>
-      <li>Nonprofit Galas and Fundraisers</li>
-    </ul>
+        <!-- 2. Target Events -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">2. Target Events</h2>
+            <p class="mb-4 text-gray-700 leading-relaxed">
+                We cater to a diverse set of clientele — from high-energy celebrations to professional gatherings:
+            </p>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-star">Weddings (American, South Asian, Fusion)</li>
+                <li class="li-star">Sangeet Nights, Mehndi Ceremonies, Baraats</li>
+                <li class="li-star">Saree Ceremonies, Sweet 16s, Quinceañeras</li>
+                <li class="li-star">Graduation Parties and Proms</li>
+                <li class="li-star">Birthday Parties, Baby Showers, Gender Reveals</li>
+                <li class="li-star">Corporate Trainings, Board Meetings, Team Offsites</li>
+                <li class="li-star">Nonprofit Galas and Fundraisers</li>
+            </ul>
+        </section>
 
-    <h2>3️⃣ Venue Design & Interior</h2>
-    <p><strong>Design that Impresses. Comfort that Welcomes.</strong> Every corner is purpose-built to elevate events.</p>
-    <ul>
-      <li>Grand hall with 20+ foot ceilings and adjustable lighting systems</li>
-      <li>Flexible indoor and outdoor ceremony locations</li>
-      <li>Acoustic-optimized stage and professional-grade A/V setup</li>
-      <li>Modular tables and chairs with customizable linen options</li>
-      <li>Chef-grade kitchen for catering prep and staff</li>
-      <li>Bar and lounge area with liquor license or BYOB flexibility</li>
-      <li>Private green rooms with ensuite washrooms and vanity mirrors</li>
-      <li>Climate-controlled interiors and eco-friendly insulation</li>
-    </ul>
+        <!-- 3. Venue Design & Interior -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">3. Venue Design & Interior</h2>
+            <p class="mb-4 text-gray-700 leading-relaxed">
+                <span class="font-semibold text-indigo-700">Design that Impresses. Comfort that Welcomes.</span> Every corner is purpose-built to elevate events.
+            </p>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-check">
+                    Grand hall with <span class="font-medium">20+ foot ceilings</span> and adjustable lighting systems.
+                </li>
+                <li class="li-check">Flexible indoor and outdoor ceremony locations.</li>
+                <li class="li-check">Acoustic-optimized stage and <span class="font-medium">professional-grade A/V setup.</span></li>
+                <li class="li-check">Modular tables and chairs with customizable linen options.</li>
+                <li class="li-check">Chef-grade kitchen for catering prep and staff.</li>
+                <li class="li-check">Bar and lounge area with liquor license or <span class="font-medium">BYOB flexibility.</span></li>
+                <li class="li-check">Private green rooms with ensuite washrooms and vanity mirrors.</li>
+                <li class="li-check">Climate-controlled interiors and eco-friendly insulation.</li>
+            </ul>
+        </section>
 
-    <h2>4️⃣ Vendor Strategy</h2>
-    <p><strong>We believe in community. Our Preferred Vendor Program helps small businesses grow while ensuring quality for clients.</strong></p>
-    <ul>
-      <li>Includes DJs, Photographers, Videographers, Florists, Event Planners, Hair/Makeup Artists, Bartenders, and more</li>
-      <li>One-time $500 onboarding fee for vendors to be listed in our official directory</li>
-      <li>Preferred vendors get direct leads, early event alerts, and optional marketing features</li>
-    </ul>
-    <p><strong>Outside Vendors:</strong> Welcomed with a surcharge of $250/vendor, ensuring flexibility for our clients and quality control for us.</p>
+        <!-- 4. Vendor Strategy -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">4. Vendor Strategy</h2>
+            <p class="mb-4 text-gray-700 leading-relaxed">
+                We believe in community. Our <span class="font-semibold text-indigo-700">Preferred Vendor Program</span> helps small businesses grow while ensuring quality for clients.
+            </p>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-check">Includes DJs, Photographers, Videographers, Florists, Event Planners, Hair/Makeup Artists, Bartenders, and more.</li>
+                <li class="li-check">One-time <span class="font-medium">$500 onboarding fee</span> for vendors to be listed in our official directory.</li>
+                <li class="li-check">Preferred vendors get direct leads, early event alerts, and optional marketing features.</li>
+                <li class="li-check">
+                    <span class="font-medium">Outside Vendors:</span> Welcomed with a surcharge of <span class="font-medium">$250/vendor</span>, ensuring flexibility for our clients and quality control for us.
+                </li>
+            </ul>
+        </section>
 
-    <h2>5️⃣ Competitive Advantage</h2>
-    <ul>
-      <li>Extended event hours until 2 AM or later</li>
-      <li>Privately owned land means full control over zoning, operations, and event styling</li>
-      <li>Versatile for both weekend private events and weekday professional functions</li>
-      <li>High-end architectural design blends form and function for any occasion</li>
-      <li>Vendor ecosystem combines reliability and flexibility — the best of both worlds</li>
-      <li>Future expansion potential: on-site lodging, outdoor ceremony amphitheater, or secondary smaller event space</li>
-    </ul>
+        <!-- 5. Competitive Advantage -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">5. Competitive Advantage</h2>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-star">Extended event hours <span class="font-medium">until 2 AM or later.</span></li>
+                <li class="li-star">Privately owned land means full control over zoning, operations, and event styling.</li>
+                <li class="li-star">Versatile for both weekend private events and weekday professional functions.</li>
+                <li class="li-star">High-end architectural design blends form and function for any occasion.</li>
+                <li class="li-star">Vendor ecosystem combines reliability and flexibility — the best of both worlds.</li>
+                <li class="li-star">Future expansion potential: on-site lodging, outdoor ceremony amphitheater, or secondary smaller event space.</li>
+            </ul>
+        </section>
 
-    <h2>6️⃣ Financial Overview</h2>
-    <ul>
-      <li><strong>Initial Investment:</strong>
-        <ul>
-          <li>~$750,000 for land/property (based on rural Texas market)</li>
-          <li>~$250,000 for renovations, interiors, A/V, furnishings, and permits</li>
-        </ul>
-      </li>
-      <li><strong>Revenue Streams:</strong>
-        <ul>
-          <li>Venue Rental ($5,000–$15,000 per event)</li>
-          <li>Preferred Vendor Onboarding ($500 each)</li>
-          <li>Outside Vendor Usage Fee ($250 flat)</li>
-          <li>Alcohol Service Fee or BYOB Surcharge</li>
-          <li>Valet Service (optional add-on)</li>
-        </ul>
-      </li>
-      <li><strong>Break-Even:</strong> Estimated within 14–18 months at a rate of 4–6 events/month</li>
-      <li><strong>Scalability:</strong> Duplicate the model in other states or expand on adjacent land</li>
-    </ul>
+        <!-- 6. Financial Overview -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">6. Financial Overview</h2>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Initial Investment:</h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="li-dollar">
+                        ~<span class="font-medium">$750,000</span> for land/property (based on rural Texas market).
+                    </li>
+                    <li class="li-dollar">
+                        ~<span class="font-medium">$250,000</span> for renovations, interiors, A/V, furnishings, and permits.
+                    </li>
+                </ul>
+            </div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800">Revenue Streams:</h3>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="li-dollar">Venue Rental (<span class="font-medium">$5,000–$15,000</span> per event).</li>
+                    <li class="li-dollar">Preferred Vendor Onboarding (<span class="font-medium">$500</span> each).</li>
+                    <li class="li-dollar">Outside Vendor Usage Fee (<span class="font-medium">$250</span> flat).</li>
+                    <li class="li-dollar">Alcohol Service Fee or BYOB Surcharge.</li>
+                    <li class="li-dollar">Valet Service (optional add-on).</li>
+                </ul>
+            </div>
+            <div class="text-gray-700">
+                <p class="mb-2">
+                    <span class="font-semibold text-indigo-700">Break-Even:</span> Estimated within <span class="font-medium">14–18 months</span> at a rate of 4–6 events/month.
+                </p>
+                <p>
+                    <span class="font-semibold text-indigo-700">Scalability:</span> Duplicate the model in other states or expand on adjacent land.
+                </p>
+            </div>
+        </section>
 
-    <h2>7️⃣ Next Steps</h2>
-    <ul>
-      <li>Finalize real estate options with utility access and minimal zoning constraints</li>
-      <li>Hire architect and general contractor for cost estimates and permitting strategy</li>
-      <li>Form LLC, secure liability insurance, and begin brand/logo development</li>
-      <li>Start building vendor partnerships through interviews, onboarding, and agreements</li>
-      <li>Create a pre-launch landing page to collect interest and feedback from target demographics</li>
-      <li>Begin targeted marketing on social media platforms and wedding/event directories</li>
-    </ul>
-  </section>
+        <!-- 7. Next Steps -->
+        <section class="section-card">
+            <h2 class="section-title text-3xl mb-6">7. Next Steps</h2>
+            <ul class="space-y-3 text-gray-700">
+                <li class="li-next">Finalize real estate options with utility access and minimal zoning constraints.</li>
+                <li class="li-next">Hire architect and general contractor for cost estimates and permitting strategy.</li>
+                <li class="li-next">Form LLC, secure liability insurance, and begin brand/logo development.</li>
+                <li class="li-next">Start building vendor partnerships through interviews, onboarding, and agreements.</li>
+                <li class="li-next">Create a pre-launch landing page to collect interest and feedback from target demographics.</li>
+                <li class="li-next">Begin targeted marketing on social media platforms and wedding/event directories.</li>
+            </ul>
+        </section>
 
-  <footer>
-    <p>&copy; 2025 The Grand Escape. All rights reserved. Designed for dreams. Built for celebration.</p>
-  </footer>
+        <footer class="text-center text-gray-500 text-sm mt-12">
+            &copy; 2025 Dream Venue. All rights reserved.
+        </footer>
+    </div>
 </body>
 </html>
