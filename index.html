@@ -11,11 +11,16 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
-            color: #374151; /* Dark gray text */
+            background-color: #f9fafb; /* Very light gray/off-white background */
+            color: #343a40; /* Deep charcoal gray text */
+            /* Updated background image with oak/light gray theme colors */
+            background-image: url('https://katrinamcardle.com/wp-content/uploads/2024/01/brownstone-reserve.jpeg'); /* Light gray background, oak text */
+            background-size: cover; /* Cover the entire background */
+            background-attachment: fixed; /* Keep background fixed while scrolling */
+            background-position: center; /* Center the background image */
         }
         .section-card {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque white for readability */
             border-radius: 1.5rem; /* More rounded corners */
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Larger shadow */
             padding: 2rem;
@@ -26,13 +31,19 @@
             transform: translateY(-5px); /* Slight lift on hover */
         }
         h1 {
-            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Purple gradient for heading */
+            /* Soft, muted oak gradient for heading */
+            background: linear-gradient(to right, #b0a190, #8d7b6a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
         }
         .section-title {
-            color: #4f46e5; /* Indigo color for section titles */
+            color: #7a624d; /* Rich, warm oak brown for section titles */
+            font-weight: 600;
+        }
+        /* Custom class for bold text that matches the oak theme */
+        .text-oak-theme {
+            color: #7a624d; /* Matches section-title color */
             font-weight: 600;
         }
         .list-item {
@@ -41,14 +52,14 @@
             margin-bottom: 0.75rem;
         }
         .list-item-icon {
-            color: #10b981; /* Green checkmark */
+            color: #7a624d; /* Oak brown for icons */
             margin-right: 0.75rem;
             font-size: 1.25rem;
             line-height: 1.5rem;
         }
         /* Simple icon styling for list items (no external library, just Unicode/emoji) */
         .li-check::before {
-            content: '✅';
+            content: '✅'; /* Still a checkmark emoji, but its perceived color might shift with surrounding text */
             margin-right: 0.5rem;
         }
         .li-star::before {
@@ -56,7 +67,7 @@
             margin-right: 0.5rem;
         }
         .li-dollar::before {
-            content: '💰';
+            content: '�';
             margin-right: 0.5rem;
         }
         .li-next::before {
@@ -80,7 +91,7 @@
         <section class="section-card">
             <h2 class="section-title text-3xl mb-6">1. Property Strategy</h2>
             <p class="mb-4 text-gray-700 leading-relaxed">
-                <span class="font-semibold text-indigo-700">Buy to Build, Not Lease to Limit.</span> Our goal is to create a lasting legacy — a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.
+                <span class="font-semibold text-oak-theme">Buy to Build, Not Lease to Limit.</span> Our goal is to create a lasting legacy — a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.
             </p>
             <ul class="space-y-3 text-gray-700">
                 <li class="li-check">
@@ -122,7 +133,7 @@
         <section class="section-card">
             <h2 class="section-title text-3xl mb-6">3. Venue Design & Interior</h2>
             <p class="mb-4 text-gray-700 leading-relaxed">
-                <span class="font-semibold text-indigo-700">Design that Impresses. Comfort that Welcomes.</span> Every corner is purpose-built to elevate events.
+                <span class="font-semibold text-oak-theme">Design that Impresses. Comfort that Welcomes.</span> Every corner is purpose-built to elevate events.
             </p>
             <ul class="space-y-3 text-gray-700">
                 <li class="li-check">
@@ -142,7 +153,7 @@
         <section class="section-card">
             <h2 class="section-title text-3xl mb-6">4. Vendor Strategy</h2>
             <p class="mb-4 text-gray-700 leading-relaxed">
-                We believe in community. Our <span class="font-semibold text-indigo-700">Preferred Vendor Program</span> helps small businesses grow while ensuring quality for clients.
+                We believe in community. Our <span class="font-semibold text-oak-theme">Preferred Vendor Program</span> helps small businesses grow while ensuring quality for clients.
             </p>
             <ul class="space-y-3 text-gray-700">
                 <li class="li-check">Includes DJs, Photographers, Videographers, Florists, Event Planners, Hair/Makeup Artists, Bartenders, and more.</li>
@@ -193,10 +204,10 @@
             </div>
             <div class="text-gray-700">
                 <p class="mb-2">
-                    <span class="font-semibold text-indigo-700">Break-Even:</span> Estimated within <span class="font-medium">14–18 months</span> at a rate of 4–6 events/month.
+                    <span class="font-semibold text-oak-theme">Break-Even:</span> Estimated within <span class="font-medium">14–18 months</span> at a rate of 4–6 events/month.
                 </p>
                 <p>
-                    <span class="font-semibold text-indigo-700">Scalability:</span> Duplicate the model in other states or expand on adjacent land.
+                    <span class="font-semibold text-oak-theme">Scalability:</span> Duplicate the model in other states or expand on adjacent land.
                 </p>
             </div>
         </section>
@@ -220,3 +231,4 @@
     </div>
 </body>
 </html>
+�
