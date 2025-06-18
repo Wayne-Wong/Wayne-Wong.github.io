@@ -69,268 +69,284 @@
         }
 
     </style>
+    <script>
+        // Prompt for password before displaying the website
+        document.addEventListener("DOMContentLoaded", function () {
+            const correctPassword = "wong"; // Set your password here
+            const userPassword = prompt("Please enter the password to access the website:");
+            if (userPassword === correctPassword) {
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("access-denied").style.display = "block";
+            }
+        });
+    </script>
 </head>
 <body class="antialiased leading-relaxed" style="background-color: var(--color-bg-main);">
-    <div class="container mx-auto px-2 py-8 max-w-7xl bg-white shadow-xl rounded-lg my-16">
+    <div id="access-denied" style="display:none;" class="text-center py-32 text-2xl text-red-700 font-bold">
+        Access Denied
+    </div>
+    <div id="content" style="display:none;">
+        <div class="container mx-auto px-2 py-8 max-w-7xl bg-white shadow-xl rounded-lg my-16">
+            <div class="px-12 md:px-32">
+                <!-- Hero Image Section -->
+                <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+                    <img
+                        src="image1.jpg"
+                        alt="A luxurious, rustic-modern ranch style venue with expansive lawns, elegant architectural features, and a warm, inviting atmosphere."
+                        class="w-full h-96 object-cover"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1200x600/D4D4D8/4B5563?text=Image+Unavailable';"
+                    >
+                </div>
 
-        <div class="px-12 md:px-32">
-            <!-- Hero Image Section -->
-            <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
-                <img
-                    src="image1.jpg"
-                    alt="A luxurious, rustic-modern ranch style venue with expansive lawns, elegant architectural features, and a warm, inviting atmosphere."
-                    class="w-full h-96 object-cover"
-                    onerror="this.onerror=null;this.src='https://placehold.co/1200x600/D4D4D8/4B5563?text=Image+Unavailable';"
-                >
+                <!-- Title Section -->
+                <header class="text-center mb-10">
+                    <h1 class="text-4xl md:text-5xl font-bold text-custom-gray-900 mb-4 leading-tight">
+                        Dream Venue: Crafting Unforgettable Experiences, Building Lasting Legacy
+                    </h1>
+                    <p class="text-base md:text-base text-custom-gray-700">
+                        This proposal outlines a plan to develop and operate "Dream Venue," a premium event space designed to host a wide range of occasions, from weddings and celebrations to corporate functions. The strategy involves purchasing land in a secluded yet accessible location in rural Texas to build a rustic modern ranch-style venue. Key features include a grand hall, flexible indoor/outdoor spaces, and high-end amenities.
+                    </p>
+                </header>
+
+                <!-- Main Content Sections -->
+                <main>
+                    <!-- Section: Property Strategy -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            1. Property Strategy
+                        </h2>
+                        <p class="mb-4">
+                            Buy to Build, Not Lease to Limit. Our goal is to create a lasting legacy &mdash; a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li><span class="font-medium text-custom-gray-900">Location:</span> Secluded yet reachable, designed for guests to feel like they’ve stepped into another world. (Generally folks are willing to travel up to ~45-50 minutes).</li>
+                            <li><span class="font-medium text-custom-gray-900">Style:</span> Rustic modern ranch with expansive lawns, scenic views, and architectural charm.</li>
+                            <li><span class="font-medium text-custom-gray-900">Exclusivity:</span> We host one event at a time &mdash; creating a stress-free, private, and personalized environment.</li>
+                            <li><span class="font-medium text-custom-gray-900">Hours:</span> Late-night license ensures parties don’t need to stop early &mdash; venues closing at 12 AM are no match.</li>
+                            <li><span class="font-medium text-custom-gray-900">Parking:</span> On-site parking for 100+ vehicles and valet service options.</li>
+                            <li><span class="font-medium text-custom-gray-900">Travel:</span> Distance may not matter as much, most are willing to travel!</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Target Events -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            2. Target Events
+                        </h2>
+                        <img 
+                            src="image2.png" 
+                            alt="Property Strategy" 
+                            class="w-full max-h-64 object-cover rounded-lg mb-6"
+                        >
+                        <p class="mb-4">
+                            We cater to a diverse set of clientele &mdash; from high-energy celebrations to professional gatherings:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Weddings (American, South Asian, Fusion)</li>
+                            <li>Sangeet Nights, Mehndi Ceremonies, Baraats</li>
+                            <li>Saree Ceremonies, Sweet 16s, Quinceaneras</li>
+                            <li>Graduation Parties and Proms</li>
+                            <li>Birthday Parties, Baby Showers, Gender Reveals</li>
+                            <li>Corporate Trainings, Board Meetings, Team Offsites</li>
+                            <li>Nonprofit Galas and Fundraisers</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Venue Design & Interior -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            3. Venue Design &amp; Interior
+                        </h2>
+                        <img 
+                            src="image3.png" 
+                            alt="Property Strategy" 
+                            class="w-full max-h-64 object-cover rounded-lg mb-6"
+                        >
+                        <p class="mb-4">
+                            Design that Impresses. Comfort that Welcomes. Every corner is purpose-built to elevate events. This is what sets us apart. In short, GRAND!
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Grand hall with 20+ foot ceilings (MUST) and adjustable lighting systems.</li>
+                            <li>Flexible indoor and outdoor ceremony locations.</li>
+                            <li>Big hanging chandeliers.</li>
+                            <li>Private green rooms with ensuite washrooms and vanity mirrors.</li>
+                            <li>Lounge area for guests.</li>
+                            <li>Climate-controlled interiors and eco-friendly insulation.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Venue Interior Upgrades -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            4. Venue Interior Upgrades
+                        </h2>
+                        <p class="mb-4">
+                            Conveniently included with the venue with custom rates!
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Acoustic-optimized stage and professional-grade A/V setup.</li>
+                            <li>Modular tables and chairs with customizable linen options.</li>
+                            <li>Dance Floor.</li>
+                            <li>Lighting.</li>
+                            <li>Smoke machine.</li>
+                            <li>Bar counter.</li>
+                            <li>Chef-grade kitchen for catering prep and staff.</li>
+                            <li>Bar and lounge area with liquor license or BYOB flexibility.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Vendor Strategy -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            5. Vendor Strategy
+                        </h2>
+                        <p class="mb-4">
+                            We believe in community. Our Preferred Vendor Program helps small businesses grow while ensuring quality for clients.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>List of Preferred Vendors:
+                                <ul class="list-circle list-inside ml-8 mt-2 space-y-1">
+                                    <li>DJs</li>
+                                    <li>Photographers</li>
+                                    <li>Videographers</li>
+                                    <li>Florists --&gt; We want to capitalize on this with easy packages.</li>
+                                    <li>Event Planners</li>
+                                    <li>Hair/Makeup Artists</li>
+                                    <li>Bartenders --&gt; Alcohol License needed.</li>
+                                    <li>And more...</li>
+                                </ul>
+                            </li>
+                            <li><span class="font-medium text-custom-gray-900">$200 to $500</span> commission fee per vendor when selected by guests.</li>
+                            <li><span class="font-medium text-custom-gray-900">Outside Vendors:</span> Welcomed with a surcharge of $1000, ensuring flexibility for our clients and quality control for us.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Competitive Advantage -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            6. Competitive Advantage
+                        </h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Extended event hours until 2 AM or later.</li>
+                            <li>Privately owned land means full control over zoning, operations, and event styling.</li>
+                            <li>Versatile for both weekend private events and weekday professional functions.</li>
+                            <li>High-end architectural design blends form and function for any occasion.</li>
+                            <li>Future expansion potential: on-site lodging, outdoor ceremony amphitheater, or secondary smaller event space.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Section: Financial Overview -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            7. Financial Overview
+                        </h2>
+                        <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Initial Investment:</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4 mb-6">
+                            <li><span class="font-medium text-custom-gray-900">~$300,000+</span> for land/property (based on rural Texas market).</li>
+                            <li><span class="font-medium text-custom-gray-900">~$1M</span> for Construction Cost.</li>
+                            <li><span class="font-medium text-custom-gray-900">~$250,000+</span> for renovations, interiors, A/V, furnishings, and permits.</li>
+                        </ul>
+
+                        <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Land &amp; Development Cost Breakdown</h3>
+                        <div class="overflow-x-auto mb-6 rounded-lg shadow-md">
+                            <table class="w-full text-sm text-left text-custom-gray-700">
+                                <thead class="text-xs text-custom-gray-900 uppercase bg-custom-gray-100">
+                                    <tr>
+                                        <th scope="col" class="px-4 py-3">City</th>
+                                        <th scope="col" class="px-4 py-3">Avg Land Cost ($/acre)</th>
+                                        <th scope="col" class="px-4 py-3">Site Prep &amp; Utilities</th>
+                                        <th scope="col" class="px-4 py-3">Construction Cost (Commercial)</th>
+                                        <th scope="col" class="px-4 py-3">Estimated Total Cost per Acre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
+                                        <td class="px-4 py-3">McKinney</td>
+                                        <td class="px-4 py-3">$231,000</td>
+                                        <td class="px-4 py-3">$10K-15K</td>
+                                        <td class="px-4 py-3">$300-450/sqft</td>
+                                        <td class="px-4 py-3">$2.0M-2.7M (5,000 sqft)</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
+                                        <td class="px-4 py-3">Prosper</td>
+                                        <td class="px-4 py-3">$290,000</td>
+                                        <td class="px-4 py-3">$12K-18K</td>
+                                        <td class="px-4 py-3">$300-450/sqft</td>
+                                        <td class="px-4 py-3">$2.2M-2.9M</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
+                                        <td class="px-4 py-3">Celina</td>
+                                        <td class="px-4 py-3">$295,000</td>
+                                        <td class="px-4 py-3">$12K-18K</td>
+                                        <td class="px-4 py-3">$300-450/sqft</td>
+                                        <td class="px-4 py-3">$2.3M-3M</td>
+                                    </tr>
+                                    <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
+                                        <td class="px-4 py-3">Little Elm</td>
+                                        <td class="px-4 py-3">$474,000</td>
+                                        <td class="px-4 py-3">$12K-18K</td>
+                                        <td class="px-4 py-3">$300-450/sqft</td>
+                                        <td class="px-4 py-3">$2.6M-3.3M</td>
+                                    </tr>
+                                    <tr class="bg-white border-custom-gray-300 hover:bg-custom-gray-50">
+                                        <td class="px-4 py-3">Princeton</td>
+                                        <td class="px-4 py-3">$129,000</td>
+                                        <td class="px-4 py-3">$8K-15K</td>
+                                        <td class="px-4 py-3">$300-450/sqft</td>
+                                        <td class="px-4 py-3">$1.8M-2.5M</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Revenue Streams:</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4 mb-4">
+                            <li>Venue Rental (Weekend Pricing) <span class="text-sm italic">(Based on number of guests)</span>
+                                <ul class="list-circle list-inside ml-8 mt-2 space-y-1">
+                                    <li><span class="font-medium text-custom-gray-900">$5,000-15,000</span> (Small events)</li>
+                                    <li><span class="font-medium text-custom-gray-900">$10,000-20,000</span> (Big events)</li>
+                                </ul>
+                            </li>
+                            <li>Preferred Vendor (<span class="font-medium text-custom-gray-900">$500 each</span>)</li>
+                            <li>Outside Vendor Usage Fee (<span class="font-medium text-custom-gray-900">$550 flat</span>)</li>
+                            <li>Alcohol Service Fee or BYOB Surcharge</li>
+                            <li>Valet Service (optional add-on)</li>
+                        </ul>
+
+                        <p class="text-sm text-custom-gray-700 italic mb-4">
+                            <span class="font-bold">**All services are limited to a set number of hours agreed. Additional hours will be charged a flat fee per hour**</span>
+                        </p>
+
+                        <p class="mb-4">
+                            <span class="font-medium text-custom-gray-900">Break-Even:</span> Estimated within 16&ndash;24 months at a rate of 4&ndash;6 events/month.<br>
+                            <span class="font-medium text-custom-gray-900">Scalability:</span> Duplicate the model in other states or expand on adjacent land.
+                        </p>
+                    </section>
+
+                    <!-- Section: Next Steps -->
+                    <section class="mb-8">
+                        <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
+                            8. Next Steps
+                        </h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Finalize real estate options with utility access and minimal zoning constraints.</li>
+                            <li>Hire architect and general contractor for cost estimates and permitting strategy.</li>
+                            <li>Form LLC, secure liability insurance, and begin brand/logo development.</li>
+                            <li>Start building vendor partnerships through interviews, onboarding, and agreements.</li>
+                            <li>Create a pre-launch landing page to collect interest and feedback from target demographics.</li>
+                            <li>Begin targeted marketing on social media platforms and wedding/event directories.</li>
+                        </ul>
+                    </section>
+                </main>
+
+                <!-- Footer -->
+                <footer class="text-center text-sm text-custom-gray-600 mt-12 pt-8 border-t border-custom-gray-200">
+                    &copy; 2025 Dream Venue. All rights reserved.
+                </footer>
             </div>
 
-            <!-- Title Section -->
-            <header class="text-center mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold text-custom-gray-900 mb-4 leading-tight">
-                    Dream Venue: Crafting Unforgettable Experiences, Building Lasting Legacy
-                </h1>
-                <p class="text-base md:text-base text-custom-gray-700">
-                    This proposal outlines a plan to develop and operate "Dream Venue," a premium event space designed to host a wide range of occasions, from weddings and celebrations to corporate functions. The strategy involves purchasing land in a secluded yet accessible location in rural Texas to build a rustic modern ranch-style venue. Key features include a grand hall, flexible indoor/outdoor spaces, and high-end amenities.
-                </p>
-            </header>
-
-            <!-- Main Content Sections -->
-            <main>
-                <!-- Section: Property Strategy -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        1. Property Strategy
-                    </h2>
-                    <p class="mb-4">
-                        Buy to Build, Not Lease to Limit. Our goal is to create a lasting legacy &mdash; a premium venue that delivers long-term value and unmatched experiences. Ownership grants us full creative and operational freedom.
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li><span class="font-medium text-custom-gray-900">Location:</span> Secluded yet reachable, designed for guests to feel like they’ve stepped into another world. (Generally folks are willing to travel up to ~45-50 minutes).</li>
-                        <li><span class="font-medium text-custom-gray-900">Style:</span> Rustic modern ranch with expansive lawns, scenic views, and architectural charm.</li>
-                        <li><span class="font-medium text-custom-gray-900">Exclusivity:</span> We host one event at a time &mdash; creating a stress-free, private, and personalized environment.</li>
-                        <li><span class="font-medium text-custom-gray-900">Hours:</span> Late-night license ensures parties don’t need to stop early &mdash; venues closing at 12 AM are no match.</li>
-                        <li><span class="font-medium text-custom-gray-900">Parking:</span> On-site parking for 100+ vehicles and valet service options.</li>
-                        <li><span class="font-medium text-custom-gray-900">Travel:</span> Distance may not matter as much, most are willing to travel!</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Target Events -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        2. Target Events
-                    </h2>
-                    <img 
-                        src="image2.png" 
-                        alt="Property Strategy" 
-                        class="w-full max-h-64 object-cover rounded-lg mb-6"
-                    >
-                    <p class="mb-4">
-                        We cater to a diverse set of clientele &mdash; from high-energy celebrations to professional gatherings:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Weddings (American, South Asian, Fusion)</li>
-                        <li>Sangeet Nights, Mehndi Ceremonies, Baraats</li>
-                        <li>Saree Ceremonies, Sweet 16s, Quinceaneras</li>
-                        <li>Graduation Parties and Proms</li>
-                        <li>Birthday Parties, Baby Showers, Gender Reveals</li>
-                        <li>Corporate Trainings, Board Meetings, Team Offsites</li>
-                        <li>Nonprofit Galas and Fundraisers</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Venue Design & Interior -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        3. Venue Design &amp; Interior
-                    </h2>
-                    <img 
-                        src="image3.png" 
-                        alt="Property Strategy" 
-                        class="w-full max-h-64 object-cover rounded-lg mb-6"
-                    >
-                    <p class="mb-4">
-                        Design that Impresses. Comfort that Welcomes. Every corner is purpose-built to elevate events. This is what sets us apart. In short, GRAND!
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Grand hall with 20+ foot ceilings (MUST) and adjustable lighting systems.</li>
-                        <li>Flexible indoor and outdoor ceremony locations.</li>
-                        <li>Big hanging chandeliers.</li>
-                        <li>Private green rooms with ensuite washrooms and vanity mirrors.</li>
-                        <li>Lounge area for guests.</li>
-                        <li>Climate-controlled interiors and eco-friendly insulation.</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Venue Interior Upgrades -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        4. Venue Interior Upgrades
-                    </h2>
-                    <p class="mb-4">
-                        Conveniently included with the venue with custom rates!
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Acoustic-optimized stage and professional-grade A/V setup.</li>
-                        <li>Modular tables and chairs with customizable linen options.</li>
-                        <li>Dance Floor.</li>
-                        <li>Lighting.</li>
-                        <li>Smoke machine.</li>
-                        <li>Bar counter.</li>
-                        <li>Chef-grade kitchen for catering prep and staff.</li>
-                        <li>Bar and lounge area with liquor license or BYOB flexibility.</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Vendor Strategy -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        5. Vendor Strategy
-                    </h2>
-                    <p class="mb-4">
-                        We believe in community. Our Preferred Vendor Program helps small businesses grow while ensuring quality for clients.
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>List of Preferred Vendors:
-                            <ul class="list-circle list-inside ml-8 mt-2 space-y-1">
-                                <li>DJs</li>
-                                <li>Photographers</li>
-                                <li>Videographers</li>
-                                <li>Florists --&gt; We want to capitalize on this with easy packages.</li>
-                                <li>Event Planners</li>
-                                <li>Hair/Makeup Artists</li>
-                                <li>Bartenders --&gt; Alcohol License needed.</li>
-                                <li>And more...</li>
-                            </ul>
-                        </li>
-                        <li><span class="font-medium text-custom-gray-900">$200 to $500</span> commission fee per vendor when selected by guests.</li>
-                        <li><span class="font-medium text-custom-gray-900">Outside Vendors:</span> Welcomed with a surcharge of $1000, ensuring flexibility for our clients and quality control for us.</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Competitive Advantage -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        6. Competitive Advantage
-                    </h2>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Extended event hours until 2 AM or later.</li>
-                        <li>Privately owned land means full control over zoning, operations, and event styling.</li>
-                        <li>Versatile for both weekend private events and weekday professional functions.</li>
-                        <li>High-end architectural design blends form and function for any occasion.</li>
-                        <li>Future expansion potential: on-site lodging, outdoor ceremony amphitheater, or secondary smaller event space.</li>
-                    </ul>
-                </section>
-
-                <!-- Section: Financial Overview -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        7. Financial Overview
-                    </h2>
-                    <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Initial Investment:</h3>
-                    <ul class="list-disc list-inside space-y-2 pl-4 mb-6">
-                        <li><span class="font-medium text-custom-gray-900">~$300,000+</span> for land/property (based on rural Texas market).</li>
-                        <li><span class="font-medium text-custom-gray-900">~$1M</span> for Construction Cost.</li>
-                        <li><span class="font-medium text-custom-gray-900">~$250,000+</span> for renovations, interiors, A/V, furnishings, and permits.</li>
-                    </ul>
-
-                    <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Land &amp; Development Cost Breakdown</h3>
-                    <div class="overflow-x-auto mb-6 rounded-lg shadow-md">
-                        <table class="w-full text-sm text-left text-custom-gray-700">
-                            <thead class="text-xs text-custom-gray-900 uppercase bg-custom-gray-100">
-                                <tr>
-                                    <th scope="col" class="px-4 py-3">City</th>
-                                    <th scope="col" class="px-4 py-3">Avg Land Cost ($/acre)</th>
-                                    <th scope="col" class="px-4 py-3">Site Prep &amp; Utilities</th>
-                                    <th scope="col" class="px-4 py-3">Construction Cost (Commercial)</th>
-                                    <th scope="col" class="px-4 py-3">Estimated Total Cost per Acre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
-                                    <td class="px-4 py-3">McKinney</td>
-                                    <td class="px-4 py-3">$231,000</td>
-                                    <td class="px-4 py-3">$10K-15K</td>
-                                    <td class="px-4 py-3">$300-450/sqft</td>
-                                    <td class="px-4 py-3">$2.0M-2.7M (5,000 sqft)</td>
-                                </tr>
-                                <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
-                                    <td class="px-4 py-3">Prosper</td>
-                                    <td class="px-4 py-3">$290,000</td>
-                                    <td class="px-4 py-3">$12K-18K</td>
-                                    <td class="px-4 py-3">$300-450/sqft</td>
-                                    <td class="px-4 py-3">$2.2M-2.9M</td>
-                                </tr>
-                                <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
-                                    <td class="px-4 py-3">Celina</td>
-                                    <td class="px-4 py-3">$295,000</td>
-                                    <td class="px-4 py-3">$12K-18K</td>
-                                    <td class="px-4 py-3">$300-450/sqft</td>
-                                    <td class="px-4 py-3">$2.3M-3M</td>
-                                </tr>
-                                <tr class="bg-white border-b border-custom-gray-300 hover:bg-custom-gray-50">
-                                    <td class="px-4 py-3">Little Elm</td>
-                                    <td class="px-4 py-3">$474,000</td>
-                                    <td class="px-4 py-3">$12K-18K</td>
-                                    <td class="px-4 py-3">$300-450/sqft</td>
-                                    <td class="px-4 py-3">$2.6M-3.3M</td>
-                                </tr>
-                                <tr class="bg-white border-custom-gray-300 hover:bg-custom-gray-50">
-                                    <td class="px-4 py-3">Princeton</td>
-                                    <td class="px-4 py-3">$129,000</td>
-                                    <td class="px-4 py-3">$8K-15K</td>
-                                    <td class="px-4 py-3">$300-450/sqft</td>
-                                    <td class="px-4 py-3">$1.8M-2.5M</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <h3 class="text-2xl font-medium text-custom-gray-800 mb-3">Revenue Streams:</h3>
-                    <ul class="list-disc list-inside space-y-2 pl-4 mb-4">
-                        <li>Venue Rental (Weekend Pricing) <span class="text-sm italic">(Based on number of guests)</span>
-                            <ul class="list-circle list-inside ml-8 mt-2 space-y-1">
-                                <li><span class="font-medium text-custom-gray-900">$5,000-15,000</span> (Small events)</li>
-                                <li><span class="font-medium text-custom-gray-900">$10,000-20,000</span> (Big events)</li>
-                            </ul>
-                        </li>
-                        <li>Preferred Vendor (<span class="font-medium text-custom-gray-900">$500 each</span>)</li>
-                        <li>Outside Vendor Usage Fee (<span class="font-medium text-custom-gray-900">$550 flat</span>)</li>
-                        <li>Alcohol Service Fee or BYOB Surcharge</li>
-                        <li>Valet Service (optional add-on)</li>
-                    </ul>
-
-                    <p class="text-sm text-custom-gray-700 italic mb-4">
-                        <span class="font-bold">**All services are limited to a set number of hours agreed. Additional hours will be charged a flat fee per hour**</span>
-                    </p>
-
-                    <p class="mb-4">
-                        <span class="font-medium text-custom-gray-900">Break-Even:</span> Estimated within 16&ndash;24 months at a rate of 4&ndash;6 events/month.<br>
-                        <span class="font-medium text-custom-gray-900">Scalability:</span> Duplicate the model in other states or expand on adjacent land.
-                    </p>
-                </section>
-
-                <!-- Section: Next Steps -->
-                <section class="mb-8">
-                    <h2 class="text-3xl font-semibold text-custom-gray-900 mb-4 pb-2 border-b-2 border-custom-oak-500">
-                        8. Next Steps
-                    </h2>
-                    <ul class="list-disc list-inside space-y-2 pl-4">
-                        <li>Finalize real estate options with utility access and minimal zoning constraints.</li>
-                        <li>Hire architect and general contractor for cost estimates and permitting strategy.</li>
-                        <li>Form LLC, secure liability insurance, and begin brand/logo development.</li>
-                        <li>Start building vendor partnerships through interviews, onboarding, and agreements.</li>
-                        <li>Create a pre-launch landing page to collect interest and feedback from target demographics.</li>
-                        <li>Begin targeted marketing on social media platforms and wedding/event directories.</li>
-                    </ul>
-                </section>
-            </main>
-
-            <!-- Footer -->
-            <footer class="text-center text-sm text-custom-gray-600 mt-12 pt-8 border-t border-custom-gray-200">
-                &copy; 2025 Dream Venue. All rights reserved.
-            </footer>
         </div>
-
     </div>
 </body>
 </html>
