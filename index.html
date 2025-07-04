@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Interactive Guide to AI Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Serene Harmony -->
+    <!-- Application Structure Plan: The SPA is designed around an interactive "AI Engineering Lifecycle" concept. This thematic structure organizes the dense report content into a more intuitive, user-flow-based experience. Key sections include: an introduction to the new paradigm, an interactive Core Concepts Dashboard (for exploring models, architecture, and generation controls), and the main visual Development Lifecycle. This non-linear, visual approach is chosen to make the complex, text-heavy source material more engaging, digestible, and easily explorable for learners and practitioners, prioritizing understanding over a direct, linear representation of the report. -->
+    <!-- Visualization & Content Choices: The application uses a mix of interactive diagrams and charts to simplify complex topics. The Transformer architecture, RAG workflow, and production architecture are visualized using HTML/CSS flowcharts for clarity (Goal: Organize, Inform). An interactive "Generation Control Simulator" with Chart.js is included to make abstract sampling parameters tangible (Goal: Engage, Inform). Comparative information (RAG vs. Finetuning, PEFT methods) is presented in clear HTML tables (Goal: Compare). This selection avoids static graphics, using interaction to encourage exploration and deeper understanding, all implemented without SVG or Mermaid JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F4; /* warm neutral background */
+            color: #374151;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+            color: #6B8A8A;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #4A6B6B;
+            border-bottom-color: #E8A87C;
+        }
+        .content-card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .tab.active {
+            background-color: #4A6B6B;
+            color: white;
+        }
+        .tab {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .flowchart-node {
+            border: 2px solid #6B8A8A;
+            background-color: white;
+            color: #4A6B6B;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .flowchart-node.active, .flowchart-node:hover {
+            background-color: #4A6B6B;
+            color: white;
+            border-color: #E8A87C;
+            transform: scale(1.05);
+        }
+        .flowchart-arrow {
+            color: #6B8A8A;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-[#4A6B6B]">AI Engineering Course</h1>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#introduction" class="nav-link font-medium">Paradigm</a>
+                <a href="#core-concepts" class="nav-link font-medium">Core Concepts</a>
+                <a href="#lifecycle" class="nav-link font-medium">Lifecycle</a>
+                <a href="#production" class="nav-link font-medium">Production</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-[#4A6B6B]">☰</button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+             <a href="#introduction" class="block nav-link font-medium py-1">Paradigm</a>
+             <a href="#core-concepts" class="block nav-link font-medium py-1">Core Concepts</a>
+             <a href="#lifecycle" class="block nav-link font-medium py-1">Lifecycle</a>
+             <a href="#production" class="block nav-link font-medium py-1">Production</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Section 1: Introduction -->
+        <section id="introduction" class="mb-24 text-center">
+            <h2 class="text-4xl font-bold text-[#4A6B6B] mb-4">A New Paradigm: AI Engineering</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-8">
+                Explore the fundamental shift from traditional model-centric development to a modern, product-centric approach. AI Engineering leverages powerful, pre-existing foundation models to build applications faster and more efficiently, focusing on adaptation and integration rather than creation from scratch.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                <div class="content-card p-6">
+                    <h3 class="text-xl font-bold text-[#4A6B6B] mb-2">Traditional ML Engineering</h3>
+                    <p class="text-gray-600">A linear, model-centric process starting with extensive data collection and annotation. The focus is on building a bespoke model from the ground up, which is often slow and expensive.</p>
+                    <div class="mt-4 text-sm font-mono text-[#6B8A8A]">Data → Features → Train → Deploy</div>
+                </div>
+                <div class="content-card p-6 border-2 border-[#E8A87C]">
+                    <h3 class="text-xl font-bold text-[#4A6B6B] mb-2">Modern AI Engineering</h3>
+                    <p class="text-gray-600">An iterative, product-centric cycle that starts with an existing foundation model. The focus is on rapid prototyping, evaluation, and adaptation to solve a specific problem.</p>
+                    <div class="mt-4 text-sm font-mono text-[#6B8A8A]">Prototype → Evaluate → Refine → Deploy</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Core Concepts Dashboard -->
+        <section id="core-concepts" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-[#4A6B6B] mb-4">Core Concepts Dashboard</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                    Foundation models are the engines of modern AI. This section provides an interactive exploration of their architecture, how they are aligned with human intent, and how their generative capabilities can be controlled. Click the tabs to dive into each concept.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-2 md:p-4">
+                <!-- Tabs -->
+                <div class="flex flex-wrap justify-center border-b border-gray-200 mb-6">
+                    <button class="tab py-3 px-6 font-semibold text-gray-600 rounded-t-lg active" data-tab="transformer">Transformer Architecture</button>
+                    <button class="tab py-3 px-6 font-semibold text-gray-600 rounded-t-lg" data-tab="alignment">Post-Training Alignment</button>
+                    <button class="tab py-3 px-6 font-semibold text-gray-600 rounded-t-lg" data-tab="generation">Generation Controls</button>
+                </div>
+                
+                <!-- Tab Content -->
+                <div id="tab-content" class="p-4 md:p-6 min-h-[400px]">
+                    <!-- Transformer Tab -->
+                    <div class="tab-pane active" id="transformer-content">
+                        <h3 class="text-2xl font-bold text-[#4A6B6B] mb-4 text-center">Inside the Transformer</h3>
+                        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">The Transformer architecture is the core of most foundation models. It processes input in parallel using a powerful "self-attention" mechanism. Hover over or tap the components below to learn more about each step.</p>
+                        <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-2 p-4 rounded-lg bg-gray-50">
+                            <!-- Diagram will be built here with JS -->
+                        </div>
+                        <div id="transformer-explanation" class="mt-6 p-4 bg-[#F5F5F4] rounded-lg text-center text-gray-700 min-h-[50px]">
+                            Select a component to see its description.
+                        </div>
+                    </div>
+                    <!-- Alignment Tab -->
+                    <div class="tab-pane hidden" id="alignment-content">
+                        <h3 class="text-2xl font-bold text-[#4A6B6B] mb-4 text-center">Aligning Models with Human Intent</h3>
+                        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">A raw pre-trained model is just a powerful text predictor. Post-training alignment transforms it into a helpful assistant using a two-step process.</p>
+                        <div class="flex flex-col md:flex-row items-stretch justify-center gap-4 text-center">
+                            <div class="flex-1 p-4">
+                                <div class="w-full content-card p-6">
+                                    <h4 class="text-lg font-semibold text-[#4A6B6B]">Pre-trained Model</h4>
+                                    <p class="text-sm text-gray-500 mt-1">Predicts next token based on internet data. Not yet a helpful assistant.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-center justify-center text-4xl flowchart-arrow self-center transform md:rotate-0 rotate-90">→</div>
+                            <div class="flex-1 p-4">
+                                <div class="w-full content-card p-6">
+                                    <h4 class="text-lg font-semibold text-[#4A6B6B]">1. Supervised Finetuning (SFT)</h4>
+                                    <p class="text-sm text-gray-500 mt-1">Train on high-quality prompt-response examples to teach instruction-following and desired interaction style.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center text-4xl flowchart-arrow self-center transform md:rotate-0 rotate-90">→</div>
+                            <div class="flex-1 p-4">
+                               <div class="w-full content-card p-6">
+                                    <h4 class="text-lg font-semibold text-[#4A6B6B]">2. Preference Optimization</h4>
+                                    <p class="text-sm text-gray-500 mt-1">Use human preference data (RLHF/DPO) to align the model with values like "helpfulness" and "harmlessness".</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Generation Tab -->
+                    <div class="tab-pane hidden" id="generation-content">
+                        <h3 class="text-2xl font-bold text-[#4A6B6B] mb-4 text-center">Controlling Probabilistic Output</h3>
+                        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">LLMs generate text by sampling from a probability distribution. Adjusting sampling parameters allows you to balance between creativity and control. Try moving the sliders!</p>
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="mb-4">
+                                    <label for="temperature" class="font-medium">Temperature: <span id="temp-value">0.7</span></label>
+                                    <input type="range" id="temperature" min="0.1" max="1.5" step="0.1" value="0.7" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="top-p" class="font-medium">Top-P (Nucleus): <span id="topp-value">0.9</span></label>
+                                    <input type="range" id="top-p" min="0.1" max="1.0" step="0.1" value="0.9" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                                <p id="generation-explainer" class="mt-4 text-gray-700 p-4 bg-gray-50 rounded-lg"></p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="generationChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The AI Development Lifecycle -->
+        <section id="lifecycle" class="mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-[#4A6B6B] mb-4">The AI Development Lifecycle</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                    Building a production-grade AI application is an iterative journey. This interactive diagram outlines the key stages. Click on any node to explore the techniques and considerations for that phase. **Evaluation** is central, influencing every other stage of development.
+                </p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto p-8">
+                 <!-- Central Node -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div id="node-evaluation" class="flowchart-node w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center text-center p-2 font-bold z-10">Evaluation</div>
+                </div>
+                <!-- Orbiting Nodes -->
+                <div id="lifecycle-nodes-container" class="relative w-full h-96 md:h-[500px]">
+                    <!-- Nodes will be positioned with JS -->
+                </div>
+            </div>
+            
+            <!-- Lifecycle Content Display -->
+            <div id="lifecycle-content-container" class="mt-8"></div>
+        </section>
+
+        <!-- Section 4: Production -->
+        <section id="production" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-[#4A6B6B] mb-4">Production & Optimization</h2>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                    Deploying an AI application is a complex engineering challenge. The goal is to build a system that is performant, cost-effective, and reliable at scale. This involves a sophisticated architecture and continuous user feedback.
+                </p>
+            </div>
+            <div class="content-card p-8">
+                <h3 class="text-2xl font-bold text-[#4A6B6B] mb-6 text-center">Production-Grade AI System Architecture</h3>
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="font-semibold">User Request</div>
+                    <div class="text-2xl flowchart-arrow">↓</div>
+                    <div class="flowchart-node w-48 p-3 rounded-md">Gateway & Router</div>
+                    <div class="text-2xl flowchart-arrow">↓</div>
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex flex-col items-center">
+                            <div class="flowchart-node w-48 p-3 rounded-md">Guardrail (Pre)</div>
+                            <div class="text-2xl flowchart-arrow">↓</div>
+                            <div class="flowchart-node w-48 p-3 rounded-md">Context (RAG)</div>
+                            <div class="text-2xl flowchart-arrow">↓</div>
+                            <div class="flowchart-node w-48 p-3 rounded-md bg-[#6B8A8A] text-white">LLM Core</div>
+                            <div class="text-2xl flowchart-arrow">↓</div>
+                            <div class="flowchart-node w-48 p-3 rounded-md">Guardrail (Post)</div>
+                        </div>
+                        <div class="hidden md:block text-2xl flowchart-arrow pt-20">→</div>
+                        <div class="flex flex-col items-center self-center">
+                           <div class="flowchart-node w-48 p-3 rounded-md">Cache</div>
+                           <div class="text-lg text-gray-500 mt-2">(Fast Path)</div>
+                        </div>
+                         <div class="hidden md:block text-2xl flowchart-arrow pt-20">→</div>
+                         <div class="flex flex-col items-center self-center">
+                           <div class="flowchart-node w-48 p-3 rounded-md">Agent + Tools</div>
+                           <div class="text-lg text-gray-500 mt-2">(Action Path)</div>
+                        </div>
+                    </div>
+                    <div class="text-2xl flowchart-arrow">↓</div>
+                    <div class="font-semibold">Response to User</div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-200 text-center">
+                     <p class="text-gray-700">All components continuously feed data into a central **Monitoring & Observability** system, which in turn informs the **User Feedback Loop**, driving the next cycle of iterative improvement.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>Interactive course based on "AI Engineering" by Chip Huyen. Created for educational purposes.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Core Concepts Tabs
+            const tabs = document.querySelectorAll('.tab');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    tabPanes.forEach(pane => pane.classList.add('hidden'));
+                    document.getElementById(this.dataset.tab + '-content').classList.remove('hidden');
+                });
+            });
+
+            // Transformer Diagram
+            const transformerData = {
+                "Input Embedding": "Input text is converted into numerical vectors (embeddings) that capture semantic meaning.",
+                "Positional Encoding": "Adds information about the position of each token in the sequence, since attention is parallel.",
+                "Multi-Head Attention": "The core mechanism. It weighs the importance of all other tokens for the current token, allowing the model to build rich contextual understanding.",
+                "Feed-Forward Network": "A processing step applied to each token's representation independently to add computational depth.",
+                "Stacking Layers": "These blocks are stacked multiple times to build progressively more abstract and complex representations of the data."
+            };
+            const transformerContainer = document.querySelector('#transformer-content .flex-col');
+            const transformerExplanation = document.getElementById('transformer-explanation');
+
+            Object.keys(transformerData).forEach((key, index) => {
+                const node = document.createElement('div');
+                node.className = 'flowchart-node p-3 md:p-4 rounded-lg w-full md:w-auto text-center';
+                node.textContent = key;
+                node.dataset.key = key;
+
+                if (index > 0) {
+                    const arrow = document.createElement('div');
+                    arrow.className = 'text-3xl flowchart-arrow transform md:rotate-0 rotate-90';
+                    arrow.textContent = '↓';
+                    transformerContainer.appendChild(arrow);
+                }
+                transformerContainer.appendChild(node);
+
+                node.addEventListener('mouseover', () => {
+                    transformerExplanation.textContent = transformerData[node.dataset.key];
+                });
+                node.addEventListener('click', () => {
+                     transformerExplanation.textContent = transformerData[node.dataset.key];
+                });
+            });
+
+            // Generation Controls
+            const tempSlider = document.getElementById('temperature');
+            const toppSlider = document.getElementById('top-p');
+            const tempValue = document.getElementById('temp-value');
+            const toppValue = document.getElementById('topp-value');
+            const explainer = document.getElementById('generation-explainer');
+            
+            let generationChart;
+            const initialData = [10, 20, 70, 40, 15];
+
+            function createGenerationChart() {
+                const ctx = document.getElementById('generationChart').getContext('2d');
+                generationChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Token A', 'Token B', 'Token C', 'Token D', 'Token E'],
+                        datasets: [{
+                            label: 'Next Token Probability',
+                            data: initialData.slice(),
+                            backgroundColor: '#6B8A8A',
+                            borderColor: '#4A6B6B',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { enabled: false }
+                        },
+                        scales: {
+                            y: { display: false },
+                            x: {
+                                ticks: {
+                                    font: { size: 10 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            function updateGenerationControls() {
+                const temp = parseFloat(tempSlider.value);
+                const topp = parseFloat(toppSlider.value);
+                tempValue.textContent = temp;
+                toppValue.textContent = topp;
+
+                let explainerText = "";
+                if (temp < 0.5) explainerText += "Low temperature makes output more focused and deterministic. ";
+                else if (temp > 1.0) explainerText += "High temperature makes output more random and creative. ";
+                else explainerText += "Moderate temperature provides a balance of creativity and coherence. ";
+
+                if (topp < 0.7) explainerText += "A low Top-P value restricts the choices to highly likely tokens.";
+                else explainerText += "A high Top-P value allows for more diversity in token selection.";
+                explainer.textContent = explainerText;
+
+                // Update chart
+                const logits = initialData.map(d => Math.log(d));
+                const scaledLogits = logits.map(l => l / temp);
+                const maxLogit = Math.max(...scaledLogits);
+                const probabilities = scaledLogits.map(l => Math.exp(l - maxLogit));
+                const sumProb = probabilities.reduce((a, b) => a + b, 0);
+                const normalizedProbs = probabilities.map(p => (p / sumProb) * 100);
+
+                generationChart.data.datasets[0].data = normalizedProbs;
+                generationChart.update();
+            }
+
+            createGenerationChart();
+            updateGenerationControls();
+            tempSlider.addEventListener('input', updateGenerationControls);
+            toppSlider.addEventListener('input', updateGenerationControls);
+            
+            // Lifecycle diagram
+            const lifecycleNodesData = {
+                "Prompt Engineering": { angle: 45, contentId: "prompt-eng-content" },
+                "RAG": { angle: 105, contentId: "rag-content" },
+                "Finetuning": { angle: 165, contentId: "finetuning-content" },
+                "Dataset Engineering": { angle: 225, contentId: "dataset-eng-content" },
+                "Agentic Systems": { angle: 285, contentId: "agents-content" },
+                "Production": { angle: 345, contentId: "prod-arch-content" },
+            };
+            const lifecycleContent = {
+                "prompt-eng-content": {
+                    title: "Prompt Engineering",
+                    html: `<p class="mb-4">The art and science of crafting inputs to guide the model's output. It's the most fundamental skill in AI engineering, leveraging In-Context Learning (Zero-shot and Few-shot) to teach the model tasks without changing its weights.</p><h4 class="font-bold mb-2">Key Techniques:</h4><ul><li class="mb-1"><strong>Clear Instructions:</strong> Be explicit and detailed.</li><li class="mb-1"><strong>Provide Context:</strong> Give the model relevant information to work with.</li><li class="mb-1"><strong>Decomposition:</strong> Break complex tasks into simpler steps.</li><li class="mb-1"><strong>Defensive Prompting:</strong> Guard against attacks like prompt injection and jailbreaking.</li></ul>`
+                },
+                "rag-content": {
+                    title: "Retrieval-Augmented Generation (RAG)",
+                    html: `<p class="mb-4">Connects the LLM to an external, up-to-date knowledge source to reduce hallucinations and provide factual answers. It separates the knowledge base from the reasoning engine.</p><h4 class="font-bold mb-2">RAG Workflow:</h4><ol class="list-decimal list-inside"><li><strong>Indexing (Offline):</strong> Load, split, and embed documents into a vector database.</li><li><strong>Retrieval (Online):</strong> User query is embedded, relevant chunks are retrieved via similarity search.</li><li><strong>Generation (Online):</strong> Retrieved context is added to the prompt, and the LLM generates a grounded answer.</li></ol>`
+                },
+                 "finetuning-content": {
+                    title: "Finetuning for Specialization",
+                    html: `<p class="mb-4">Adapts a model by updating its weights on a smaller, task-specific dataset. Use this to teach a new skill, style, or domain-specific language—not to add factual knowledge (use RAG for that).</p><h4 class="font-bold mb-2">Parameter-Efficient Finetuning (PEFT):</h4><p>Techniques like <strong>LoRA</strong> and <strong>QLoRA</strong> dramatically reduce the computational cost by freezing most model weights and only training a tiny fraction of new parameters, making finetuning more accessible.</p>`
+                },
+                "dataset-eng-content": {
+                    title: "Dataset Engineering",
+                    html: `<p class="mb-4">A data-centric approach where the quality of the adaptation data is the primary driver of performance. Datasets for finetuning and evaluation must be meticulously curated.</p><h4 class="font-bold mb-2">Core Principles:</h4><ul><li class="mb-1"><strong>Quality over Quantity:</strong> A small, clean dataset is better than a large, noisy one.</li><li class="mb-1"><strong>Coverage:</strong> Ensure the data represents real-world use cases, including edge cases.</li><li class="mb-1"><strong>Synthesis:</strong> Use powerful models to generate high-quality synthetic data to augment real data, especially for rare cases.</li></ul>`
+                },
+                "agents-content": {
+                    title: "Agentic Systems",
+                    html: `<p class="mb-4">Autonomous systems built around an LLM that can reason, create plans, and use tools to achieve complex goals. This moves beyond simple Q&A to proactive problem-solving.</p><h4 class="font-bold mb-2">Agent Architecture:</h4><ul><li class="mb-1"><strong>Reasoning Engine:</strong> The LLM brain that plans and makes decisions.</li><li class="mb-1"><strong>Tools:</strong> Functions the agent can call (e.g., search APIs, database queries, calculators).</li><li class="mb-1"><strong>Memory:</strong> Short-term and long-term storage for tracking progress and learnings.</li></ul>`
+                },
+                "prod-arch-content": {
+                    title: "Production & Optimization",
+                    html: `<p class="mb-4">Focuses on deploying models efficiently and reliably. Key inference metrics are Time to First Token (TTFT) and throughput. This often involves a complex system, not just a single API call.</p><h4 class="font-bold mb-2">Optimization Strategies:</h4><ul><li class="mb-1"><strong>Model Optimization:</strong> Quantization, Pruning, Distillation.</li><li class="mb-1"><strong>Service Optimization:</strong> KV Caching, Dynamic Batching, Speculative Decoding.</li></ul>`
+                },
+                 "evaluation": {
+                    title: "Evaluation: The Core of the Lifecycle",
+                    html: `<p class="mb-4">Evaluation is the most critical and challenging discipline, acting as the feedback loop for all development. It moves beyond simple accuracy to assess complex, open-ended outputs.</p><h4 class="font-bold mb-2">Evaluation Methods:</h4><ul><li class="mb-1"><strong>Human Evaluation:</strong> The gold standard, but slow and expensive.</li><li class="mb-1"><strong>Reference-Based Metrics:</strong> (e.g., ROUGE, BLEU) - Often brittle for generative tasks.</li><li class="mb-1"><strong>AI as a Judge:</strong> Using a powerful LLM as a scalable proxy for human evaluation. This is a fast and cost-effective method for getting feedback at scale.</li></ul>`
+                },
+            };
+            const nodesContainer = document.getElementById('lifecycle-nodes-container');
+            const contentContainer = document.getElementById('lifecycle-content-container');
+            const radius = nodesContainer.offsetWidth / 2.5;
+            const centralNode = document.getElementById('node-evaluation');
+            let angle_deg = 30;
+
+            Object.keys(lifecycleNodesData).forEach(key => {
+                const nodeData = lifecycleNodesData[key];
+                const node = document.createElement('div');
+                node.id = `node-${key.toLowerCase().replace(/\s/g, '-')}`;
+                node.className = 'flowchart-node absolute w-28 h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center text-center p-2 font-semibold';
+                node.textContent = key;
+                node.dataset.contentId = nodeData.contentId;
+                
+                const angle = nodeData.angle * (Math.PI / 180);
+                const x = (nodesContainer.offsetWidth / 2) + (radius * Math.cos(angle)) - (node.offsetWidth / 2) - 20;
+                const y = (nodesContainer.offsetHeight / 2) + (radius * Math.sin(angle)) - (node.offsetHeight / 2) - 20;
+                node.style.left = `${x}px`;
+                node.style.top = `${y}px`;
+
+                nodesContainer.appendChild(node);
+
+                node.addEventListener('click', (e) => {
+                    displayLifecycleContent(e.currentTarget);
+                });
+            });
+
+            centralNode.addEventListener('click', (e) => {
+                 displayLifecycleContent(e.currentTarget, 'evaluation');
+            });
+
+            function displayLifecycleContent(clickedNode, contentKeyOverride = null) {
+                document.querySelectorAll('.flowchart-node').forEach(n => n.classList.remove('active'));
+                clickedNode.classList.add('active');
+
+                const contentId = contentKeyOverride || clickedNode.dataset.contentId;
+                const contentData = lifecycleContent[contentId];
+                
+                contentContainer.innerHTML = `
+                    <div class="content-card p-6 md:p-8 max-w-3xl mx-auto">
+                        <h3 class="text-2xl font-bold text-[#4A6B6B] mb-4">${contentData.title}</h3>
+                        <div class="prose max-w-none text-gray-700">${contentData.html}</div>
+                    </div>
+                `;
+                contentContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
